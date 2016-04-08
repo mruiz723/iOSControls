@@ -10,6 +10,16 @@ import UIKit
 
 class SliderViewController: UIViewController {
 
+    //MARK: - Properties
+    @IBOutlet weak var gradeLabel: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    
+    //MARK: - Actions
+    @IBAction func gradeSliderChanged(sender: UISlider) {
+        gradeLabel.text = String(sender.value)
+    }
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
