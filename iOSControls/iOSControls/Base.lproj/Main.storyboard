@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="AngelineVintage_Demo.otf">
+            <string>AngelineVintage</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--UI Controls-->
         <scene sceneID="tne-QT-ifu">
@@ -90,7 +95,7 @@
         <!--CustomFonts-->
         <scene sceneID="U9d-lh-SAJ">
             <objects>
-                <viewController id="9HQ-D3-tSS" customClass="CutomFontsViewController" customModule="iOSControls" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="9HQ-D3-tSS" customClass="CutomFontsViewController" customModule="iOSControls" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XOe-2M-CCN"/>
                         <viewControllerLayoutGuide type="bottom" id="pgI-vo-yMn"/>
@@ -98,7 +103,24 @@
                     <view key="view" contentMode="scaleToFill" id="bos-uz-zfT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TeK-JL-Mie">
+                                <rect key="frame" x="160" y="84" width="280" height="158"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="B2V-8P-NvW"/>
+                                    <constraint firstAttribute="height" constant="158" id="WlL-0S-K11"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </string>
+                                <fontDescription key="fontDescription" name="AngelineVintage" family="Angeline Vintage" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TeK-JL-Mie" firstAttribute="centerX" secondItem="bos-uz-zfT" secondAttribute="centerX" id="eeA-bT-LdC"/>
+                            <constraint firstItem="TeK-JL-Mie" firstAttribute="top" secondItem="XOe-2M-CCN" secondAttribute="bottom" constant="20" id="zMI-yu-AuN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="CustomFonts" id="h8A-kJ-r8Z"/>
                 </viewController>
@@ -136,7 +158,7 @@
                                             <action selector="gradeSliderChanged:" destination="heV-cC-ETk" eventType="valueChanged" id="k1N-KI-IPf"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1E-er-3q8">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1E-er-3q8">
                                         <rect key="frame" x="45" y="51" width="11" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

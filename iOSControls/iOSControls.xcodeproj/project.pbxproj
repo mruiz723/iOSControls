@@ -21,6 +21,7 @@
 		3C9395211CB75DD400E54299 /* 126H.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C9395201CB75DD400E54299 /* 126H.jpg */; };
 		3C9395231CB75E0D00E54299 /* 225H.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C9395221CB75E0D00E54299 /* 225H.jpg */; };
 		3CAAA33C1CB76BDB00172CCF /* Cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CAAA33B1CB76BDB00172CCF /* Cities.plist */; };
+		3CAAA3641CB846BA00172CCF /* AngelineVintage_Demo.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3CAAA3631CB846BA00172CCF /* AngelineVintage_Demo.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		3C9395201CB75DD400E54299 /* 126H.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 126H.jpg; sourceTree = "<group>"; };
 		3C9395221CB75E0D00E54299 /* 225H.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 225H.jpg; sourceTree = "<group>"; };
 		3CAAA33B1CB76BDB00172CCF /* Cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Cities.plist; sourceTree = "<group>"; };
+		3CAAA3631CB846BA00172CCF /* AngelineVintage_Demo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AngelineVintage_Demo.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		3C9394FF1CB7463800E54299 /* iOSControls */ = {
 			isa = PBXGroup;
 			children = (
+				3CAAA3631CB846BA00172CCF /* AngelineVintage_Demo.otf */,
 				3C9395221CB75E0D00E54299 /* 225H.jpg */,
 				3C9395201CB75DD400E54299 /* 126H.jpg */,
 				3C9395001CB7463800E54299 /* AppDelegate.swift */,
@@ -153,6 +156,7 @@
 				3C9395211CB75DD400E54299 /* 126H.jpg in Resources */,
 				3C93950B1CB7463800E54299 /* LaunchScreen.storyboard in Resources */,
 				3C9395231CB75E0D00E54299 /* 225H.jpg in Resources */,
+				3CAAA3641CB846BA00172CCF /* AngelineVintage_Demo.otf in Resources */,
 				3C9395081CB7463800E54299 /* Assets.xcassets in Resources */,
 				3C9395061CB7463800E54299 /* Main.storyboard in Resources */,
 			);
