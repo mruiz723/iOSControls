@@ -123,7 +123,7 @@
             </objects>
             <point key="canvasLocation" x="1984" y="2045"/>
         </scene>
-        <!--Toolbar View Controller-->
+        <!--Toolbar-->
         <scene sceneID="n8L-h5-Qey">
             <objects>
                 <viewController id="FTd-ZU-1ml" customClass="ToolbarViewController" customModule="iOSControls" customModuleProvider="target" sceneMemberID="viewController">
@@ -136,6 +136,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="cancel" id="doa-7X-Pxb">
+                            <connections>
+                                <action selector="cancel:" destination="FTd-ZU-1ml" id="fzv-FG-Fby"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="daX-qM-8Q4"/>
+                        <barButtonItem systemItem="edit" id="nlc-Fq-Mdf">
+                            <connections>
+                                <action selector="edit:" destination="FTd-ZU-1ml" id="sCg-zm-4vg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="kel-Kr-gS6"/>
+                        <barButtonItem systemItem="add" id="RvM-B9-0ZH">
+                            <connections>
+                                <action selector="add:" destination="FTd-ZU-1ml" id="82o-xR-RV7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7oN-W6-0ft"/>
+                        <barButtonItem systemItem="trash" id="5fn-0l-iIu">
+                            <connections>
+                                <action selector="remove:" destination="FTd-ZU-1ml" id="QYN-ex-ORm"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Toolbar" id="7Be-0S-oNK"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MWa-iA-5YJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

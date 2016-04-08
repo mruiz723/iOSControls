@@ -23,6 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         menuItems = ["Toolbar", "ImageView", "Pickers", "Slider", "Switch", "CustomFonts", "ScrollView"]
+        navigationController?.setToolbarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {

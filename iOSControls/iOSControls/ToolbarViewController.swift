@@ -9,11 +9,36 @@
 import UIKit
 
 class ToolbarViewController: UIViewController {
+    
 
+    //MARK: - IBActions
+    @IBAction func cancel(sender: AnyObject) {
+        makeAlert("Cancel")
+    }
+    
+    @IBAction func edit(sender: AnyObject) {
+        makeAlert("Edit")
+    }
+    
+    @IBAction func add(sender: AnyObject) {
+        makeAlert("Add")
+    }
+    
+    @IBAction func remove(sender: AnyObject) {
+        makeAlert("Remove")
+    }
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationController?.setToolbarHidden(false, animated: false)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setToolbarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,7 +47,7 @@ class ToolbarViewController: UIViewController {
     }
     
 
-    /*
+    ///*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -30,6 +55,17 @@ class ToolbarViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
+    //MARK: - Utils
+    func makeAlert(message:String) {
+        let alertVC = UIAlertController(title: "Acción", message: message, preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: message, style: .Default) { (action) in
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        alertVC.addAction(okAction)
+        
+        presentViewController(alertVC, animated: true, completion: nil)
+    }
+    
 
 }
