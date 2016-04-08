@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        menuItems = ["Toolbar", "ImageView", "Pickers", "Slider", "Switch", "CustomFonts", "ScrollView"]
+        menuItems = ["Toolbar", "ImageViewSwitch", "Pickers", "Slider", "CustomFonts", "ScrollView"]
         navigationController?.setToolbarHidden(true, animated: false)
     }
 
