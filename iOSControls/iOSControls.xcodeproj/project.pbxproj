@@ -12,6 +12,13 @@
 		3C9395061CB7463800E54299 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C9395041CB7463800E54299 /* Main.storyboard */; };
 		3C9395081CB7463800E54299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C9395071CB7463800E54299 /* Assets.xcassets */; };
 		3C93950B1CB7463800E54299 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C9395091CB7463800E54299 /* LaunchScreen.storyboard */; };
+		3C9395131CB7541400E54299 /* ToolbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9395121CB7541400E54299 /* ToolbarViewController.swift */; };
+		3C9395151CB7543600E54299 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9395141CB7543600E54299 /* ImageViewController.swift */; };
+		3C9395171CB7544B00E54299 /* PickersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9395161CB7544B00E54299 /* PickersViewController.swift */; };
+		3C9395191CB7545C00E54299 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9395181CB7545C00E54299 /* SliderViewController.swift */; };
+		3C93951B1CB7546900E54299 /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C93951A1CB7546900E54299 /* SwitchViewController.swift */; };
+		3C93951D1CB7547F00E54299 /* CutomFontsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C93951C1CB7547F00E54299 /* CutomFontsViewController.swift */; };
+		3C93951F1CB7549400E54299 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C93951E1CB7549400E54299 /* ScrollViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		3C9395071CB7463800E54299 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C93950A1CB7463800E54299 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C93950C1CB7463800E54299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C9395121CB7541400E54299 /* ToolbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarViewController.swift; sourceTree = "<group>"; };
+		3C9395141CB7543600E54299 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		3C9395161CB7544B00E54299 /* PickersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickersViewController.swift; sourceTree = "<group>"; };
+		3C9395181CB7545C00E54299 /* SliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		3C93951A1CB7546900E54299 /* SwitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
+		3C93951C1CB7547F00E54299 /* CutomFontsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CutomFontsViewController.swift; sourceTree = "<group>"; };
+		3C93951E1CB7549400E54299 /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,13 @@
 				3C9395071CB7463800E54299 /* Assets.xcassets */,
 				3C9395091CB7463800E54299 /* LaunchScreen.storyboard */,
 				3C93950C1CB7463800E54299 /* Info.plist */,
+				3C9395121CB7541400E54299 /* ToolbarViewController.swift */,
+				3C9395141CB7543600E54299 /* ImageViewController.swift */,
+				3C9395161CB7544B00E54299 /* PickersViewController.swift */,
+				3C9395181CB7545C00E54299 /* SliderViewController.swift */,
+				3C93951A1CB7546900E54299 /* SwitchViewController.swift */,
+				3C93951C1CB7547F00E54299 /* CutomFontsViewController.swift */,
+				3C93951E1CB7549400E54299 /* ScrollViewController.swift */,
 			);
 			path = iOSControls;
 			sourceTree = "<group>";
@@ -135,8 +156,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C9395131CB7541400E54299 /* ToolbarViewController.swift in Sources */,
 				3C9395031CB7463800E54299 /* ViewController.swift in Sources */,
+				3C93951D1CB7547F00E54299 /* CutomFontsViewController.swift in Sources */,
+				3C9395171CB7544B00E54299 /* PickersViewController.swift in Sources */,
+				3C93951F1CB7549400E54299 /* ScrollViewController.swift in Sources */,
+				3C9395191CB7545C00E54299 /* SliderViewController.swift in Sources */,
+				3C9395151CB7543600E54299 /* ImageViewController.swift in Sources */,
 				3C9395011CB7463800E54299 /* AppDelegate.swift in Sources */,
+				3C93951B1CB7546900E54299 /* SwitchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
