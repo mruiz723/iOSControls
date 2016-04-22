@@ -8,13 +8,11 @@
 
 import UIKit
 
-typealias CompletionHandler = (success: Bool, response: [Contact]) ->()
+
 
 class Contact {
     
-    let request: Request = Request()
-    
-    var contacts = [Contact]()
+    typealias CompletionHandler = (success: Bool, response: [Contact]) ->()
     
     //MARK: - Properties
     var id: String?
@@ -22,7 +20,8 @@ class Contact {
     var lastName: String?
     var phone: String?
     var email: String?
-    
+    let request: Request = Request()
+    var contacts = [Contact]()
     
     //MARK: - Init
     init(id: String, name:String, lastName:String, phone:String, email:String){

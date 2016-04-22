@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 
+public typealias CompletionHandlerGET =  (success: Bool, response: [[String : AnyObject]]) ->()
 public typealias CompletionHandler =  (success: Bool, response: [String : AnyObject]) ->()
 
 let headers = [
@@ -20,7 +21,7 @@ class Request: NSObject{
     
     let url = "https://baas.kinvey.com/appdata/kid_W1BkLMHDCx/Contacts/"
     
-    func getContacts(completion:CompletionHandler){
+    func getContacts(completion:CompletionHandlerGET){
         Alamofire.request(.GET, url, parameters: nil, headers: headers)
             .responseJSON(){response in
                 
