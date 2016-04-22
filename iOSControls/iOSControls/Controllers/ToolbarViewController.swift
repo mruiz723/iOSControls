@@ -8,20 +8,29 @@
 
 import UIKit
 
-class ToolbarViewController: UIViewController {
+class ToolbarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
+    
+    //MARK: - IBOutlets
+    @IBOutlet weak var contactTable: UITableView!
+    
+    
+    //MARK: - Properties
+    var contacts: [Contact]?
+    var contact: Contact?
+    
     //MARK: - IBActions
     @IBAction func cancel(sender: AnyObject) {
         makeAlert("Cancel")
     }
     
     @IBAction func edit(sender: AnyObject) {
-        makeAlert("Edit")
+        performSegueWithIdentifier("detail", sender: nil)
     }
     
     @IBAction func add(sender: AnyObject) {
-        makeAlert("Add")
+        contact = nil
+        performSegueWithIdentifier("detail", sender: nil)
     }
     
     @IBAction func remove(sender: AnyObject) {
@@ -31,8 +40,17 @@ class ToolbarViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Contact().getContacts({ (success, response) in
+            self.contacts = response
+            self.contactTable.reloadData()
+        })
         // Do any additional setup after loading the view.
+//        navigationController?.setToolbarHidden(false, animated: false)
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         navigationController?.setToolbarHidden(false, animated: false)
     }
     
@@ -54,6 +72,34 @@ class ToolbarViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if let detailVC = segue.destinationViewController as? DetailViewController{
+            detailVC.contact = contact
+        }
+    }
+    
+    // MARK: - UITableViewDataSource
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let contacts = contacts{
+            return contacts.count
+        }
+        
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        contact = contacts![indexPath.row]
+        
+        let cell = contactTable.dequeueReusableCellWithIdentifier("Cell")
+        cell?.textLabel?.text = "\(contact!.name!) \(contact!.lastName!)"
+        cell?.detailTextLabel?.text = "\(contact!.phone!)"
+        return cell!
+    }
+    
+    // MARK: - UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        contact = contacts![indexPath.row]
     }
     
     //MARK: - Utils
