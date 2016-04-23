@@ -17,7 +17,10 @@ let headers = [
     "Content-Type": "application/x-www-form-urlencoded"
 ]
 
-class Request: NSObject{
+class Request{
+    
+    static let sharedRequest = Request()
+    private init() {} //This prevents others from using the default '()' initializer for this class.
     
     let url = "https://baas.kinvey.com/appdata/kid_W1BkLMHDCx/Contacts/"
     

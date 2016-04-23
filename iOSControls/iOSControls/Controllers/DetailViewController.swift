@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DetailViewControllerDelegate {
+    func didChangeContacts(typeOfChange:String)
+}
+
 class DetailViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -19,14 +23,43 @@ class DetailViewController: UIViewController {
     
     // MARK: - Properties
     var contact:Contact?
+    var delegate:DetailViewControllerDelegate?
+    var isUpdateAction = true
     
     // MARK: - IBActions
     @IBAction func save(sender: UIButton) {
-        
+        if (nameLabel.text?.isEmpty)! != true{
+            if (lastName.text?.isEmpty)! != true{
+                if (phoneLabel.text?.isEmpty)! != true{
+                    if (emailLabel.text?.isEmpty)! != true{
+                        contact!.name = nameLabel.text
+                        contact!.lastName = lastName.text
+                        contact!.phone = phoneLabel.text
+                        contact!.email = emailLabel.text
+                        
+                        if isUpdateAction {
+                            Contact.updateContact(contact!) { (success, response) in
+                                if success{
+                                    self.delegate!.didChangeContacts("update")
+                                    self.navigationController?.popViewControllerAnimated(true)
+                                }
+                            }
+                        }else{
+                            Contact.saveContact(contact!) { (success, response) in
+                                if success{
+                                    self.delegate!.didChangeContacts("new")
+                                    self.navigationController?.popViewControllerAnimated(true)
+                                }
+                            }
+                        }
+                        
+                        
+                    }
+                }
+            }
+        }
     }
 
-    
-    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

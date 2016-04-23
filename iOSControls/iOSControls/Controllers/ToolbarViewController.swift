@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ToolbarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ToolbarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DetailViewControllerDelegate {
     
     
     //MARK: - IBOutlets
@@ -18,6 +18,7 @@ class ToolbarViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - Properties
     var contacts: [Contact]?
     var contact: Contact?
+    var selectedContact = false
     
     //MARK: - IBActions
     @IBAction func cancel(sender: AnyObject) {
@@ -25,7 +26,10 @@ class ToolbarViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func edit(sender: AnyObject) {
-        performSegueWithIdentifier("detail", sender: nil)
+        if selectedContact{
+            selectedContact = false
+            performSegueWithIdentifier("detail", sender: nil)
+        }
     }
     
     @IBAction func add(sender: AnyObject) {
@@ -40,7 +44,7 @@ class ToolbarViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        Contact().getContacts({ (success, response) in
+        Contact.getContacts({ (success, response) in
             self.contacts = response
             self.contactTable.reloadData()
         })
@@ -74,7 +78,13 @@ class ToolbarViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Pass the selected object to the new view controller.
         
         if let detailVC = segue.destinationViewController as? DetailViewController{
+            if contact == nil {
+                contact = Contact()
+            }else{
+                detailVC.isUpdateAction = true
+            }
             detailVC.contact = contact
+            detailVC.delegate = self
         }
     }
     
@@ -100,6 +110,7 @@ class ToolbarViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         contact = contacts![indexPath.row]
+        selectedContact = true
     }
     
     //MARK: - Utils
@@ -112,6 +123,17 @@ class ToolbarViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         presentViewController(alertVC, animated: true, completion: nil)
     }
+    
+    //MARK: - DetailViewControllerDelegate
+    
+    func didChangeContacts(typeOfChange:String){
+        
+        if typeOfChange == "new"{
+            contacts?.append(contact!)
+        }
+        contactTable.reloadData()
+    }
+    
     
 
 }

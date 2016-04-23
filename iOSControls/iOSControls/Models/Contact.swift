@@ -9,10 +9,10 @@
 import UIKit
 
 
-
 class Contact {
     
-    typealias CompletionHandler = (success: Bool, response: [Contact]) ->()
+    typealias CompletionHandler = (success: Bool, response: Contact) ->()
+    typealias CompletionHandlerContacts = (success: Bool, response: [Contact]) ->()
     
     //MARK: - Properties
     var id: String?
@@ -20,8 +20,6 @@ class Contact {
     var lastName: String?
     var phone: String?
     var email: String?
-    let request: Request = Request()
-    var contacts = [Contact]()
     
     //MARK: - Init
     init(id: String, name:String, lastName:String, phone:String, email:String){
@@ -38,95 +36,76 @@ class Contact {
         
     }
     
-    func getContacts(completion: CompletionHandler){
+    class func getContacts(completion: CompletionHandlerContacts){
         
-        request.getContacts { (success, response) -> () in
-            
+        Request.sharedRequest.getContacts { (success, response) -> () in
+            var contacts = [Contact]()
             if success{
-                
-                self.contacts.removeAll()
-                
                 for item in response{
-                    
+                
                     let contact = Contact(id: item["_id"] as? String ?? "",
-                                        name: item["name"] as? String ?? "",
-                                        lastName: item["last_name"] as? String ?? "",
-                                        phone: item["phone"] as? String ?? "",
-                                        email: item["email"] as? String ?? "")
+                        name: item["name"] as? String ?? "",
+                        lastName: item["last_name"] as? String ?? "",
+                        phone: item["phone"] as? String ?? "",
+                        email: item["email"] as? String ?? "")
                     
-                    self.contacts.append(contact)
+                    contacts.append(contact)
                 }
                 
-                completion(success: true, response: self.contacts)
+                completion(success: true, response: contacts)
                 
             }else{
                 
-                completion(success: false, response: self.contacts)
+                completion(success: false, response: contacts)
             }
             
         }
     }
     
-    func saveContact(contact: Contact, completion:CompletionHandler){
+    class func saveContact(contact:Contact, completion:CompletionHandler){
+        let parameters : [String: AnyObject] = ["name": contact.name!, "last_name": contact.lastName!, "phone":contact.phone!, "email":contact.email!]
+
+        Request.sharedRequest.saveContact(parameters) { (success, response) in
+            if success{
+                completion(success: true, response: contact)
+            }else{
+                completion(success: false, response: contact)
+            }
+        }
+    }
+    
+//    func deleteContact(index : Int, contactID: String, completion: CompletionHandler){
+//        Request.sharedRequest.deleteContact(contactID) { (success, response) in
+//            if success{
+//                
+//                self.contacts.removeAtIndex(index)
+//                completion(success: true, response: self.contacts)
+//                
+//            }else{
+//                
+//                completion(success: false, response: self.contacts)
+//            }
+//
+//        }
+//    }
+//    
+    
+    
+    class func updateContact(contact: Contact, completion: CompletionHandler){
         let parameters : [String: AnyObject] = ["name": contact.name!, "last_name": contact.lastName!, "phone":contact.phone!, "email":contact.email!]
         
-        request.saveContact(parameters) { (success, response) -> () in
-            if success{
-                self.contacts.append(contact)
-                completion(success: true, response: self.contacts)
-            }else{
-                completion(success: false, response: self.contacts)
-            }
-            
-        }
-    }
-    
-    func deleteContact(index : Int, contactID: String, completion: CompletionHandler){
-        
-        request.deleteContact(contactID) { (success, response) -> () in
-            
+        Request.sharedRequest.updateContact(contact.id!, parameters: parameters, completion: { (success, response) in
             if success{
                 
-                self.contacts.removeAtIndex(index)
-                completion(success: true, response: self.contacts)
+                completion(success: true, response: contact)
                 
             }else{
                 
-                completion(success: false, response: self.contacts)
+                completion(success: false, response: contact)
             }
-            
-        }
+        })
     }
-    
-    func updateContact(contact : Contact, completion: CompletionHandler){
-        
-        
-        let parameters : [String: AnyObject] = ["name": contact.name!, "last_name": contact.lastName!, "phone":contact.phone!, "email":contact.email!]
-        
-        request.updateContact(contact.id!, parameters: parameters) { (success, response) -> () in
-            
-            if success{
-                
-                for item in self.contacts{
-                    
-                    if item.id == contact.id!{
-                        
-                        item.name = contact.name
-                        item.lastName = contact.lastName
-                        item.phone = contact.phone
-                        item.email = contact.email
-                    }
-                }
-                
-                completion(success: true, response: self.contacts)
-                
-            }else{
-                
-                completion(success: false, response: self.contacts)
-            }
-            
-        }
-    }
+
 }
 
  
